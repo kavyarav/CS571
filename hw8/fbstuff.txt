@@ -1,0 +1,58 @@
+		
+	// Load the SDK Asynchronously
+	function postPost(title) {
+		alert(title);
+		(function(d){
+		 var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+		 if (d.getElementById(id)) {return;}
+		 js = d.createElement('script'); js.id = id; js.async = true;
+		 js.src = "//connect.facebook.net/en_US/all.js";
+		 ref.parentNode.insertBefore(js, ref);
+		}(document));
+		
+		window.fbAsyncInit = function() {
+				// init the FB JS SDK
+			FB.init({
+			  appId      : '431982883531370', // App ID from the App Dashboard
+			//  channelUrl : '//cs-server.usc.edu:10174/channel.html', // Channel File for x-domain communication
+			  status     : true, // check the login status upon init?
+			  cookie     : true, // set sessions cookies to allow your server to access the session?
+			  xfbml      : true  // parse XFBML tags on this page?
+			});
+		 
+			// Additional initialization code such as adding Event Listeners goes here
+			/*FB.getLoginStatus(function(response) {
+					alert(response.status);
+					if (response.status == 'connected') {
+						movieRow = document.getElementById(id);
+						// 0 - cover, 1- title, 2-year, 3-director, 4-rating, 5-link
+						poster = movieRow.children[0];
+						//alert(poster);
+						title = movieRow.children[1];
+						//alert(title);
+						year = movieRow.children[2];
+						//alert(year);
+						director = movieRow.children[3];
+						//alert(director);
+						rate = movieRow.children[4];
+						//alert(rate);
+						deets = movieRow.children[5];
+						//alert(deets);
+						// post this stupid thing
+						var obj = {
+							method:'feed',
+							link: deets,
+							picture: poster,
+							name: title,
+							caption: "I'm interested in this thing",
+							description: title + ' released in ' + year + ' has a rating of ' + rate
+						};
+						
+						FB.ui(obj, function() { alert('success!'); });
+						
+					} else {
+						FB.login();
+					}
+			   }, true); */
+		} 
+	}

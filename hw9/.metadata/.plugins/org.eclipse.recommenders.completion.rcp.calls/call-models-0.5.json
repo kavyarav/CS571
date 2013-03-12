@@ -1,0 +1,22 @@
+{
+  "C:\\Users\\May\\facebook-android-sdk-3.0.2.b\\facebook\\bin\\facebook.jar": {
+    "location": "C:\\Users\\May\\facebook-android-sdk-3.0.2.b\\facebook\\bin\\facebook.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027C:\\Users\\May\\facebook-android-sdk-3.0.2.b\\facebook\\bin\\facebook.jar\u0027. Neither fingerprint \u002794e52f8a632829c89b65242990670ea158bffaf5\u0027 nor symbolic name \u0027facebook\u0027 are known."
+  },
+  "C:\\Users\\May\\android-sdks\\platforms\\android-17\\android.jar": {
+    "location": "C:\\Users\\May\\android-sdks\\platforms\\android-17\\android.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027C:\\Users\\May\\android-sdks\\platforms\\android-17\\android.jar\u0027. Neither fingerprint \u0027f3fec4e3d887c5bba177bd62933a8e9ee4b4403c\u0027 nor symbolic name \u0027android\u0027 are known."
+  },
+  "C:\\Users\\May\\Documents\\My Dropbox\\USC\\Fall2012\\CS571\\hw9\\csci571hw9\\gen": {
+    "location": "C:\\Users\\May\\Documents\\My Dropbox\\USC\\Fall2012\\CS571\\hw9\\csci571hw9\\gen",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\May\\Documents\\My Dropbox\\USC\\Fall2012\\CS571\\hw9\\csci571hw9\\gen\u0027. Skipped."
+  },
+  "C:\\Users\\May\\Documents\\My Dropbox\\USC\\Fall2012\\CS571\\hw9\\csci571hw9\\src": {
+    "location": "C:\\Users\\May\\Documents\\My Dropbox\\USC\\Fall2012\\CS571\\hw9\\csci571hw9\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\May\\Documents\\My Dropbox\\USC\\Fall2012\\CS571\\hw9\\csci571hw9\\src\u0027. Skipped."
+  }
+}

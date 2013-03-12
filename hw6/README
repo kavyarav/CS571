@@ -1,0 +1,15 @@
+Homework #6
+May Ang
+7779871900
+
+URL:
+http://cs-server.usc.edu:10173/hw6.php
+
+Files:
+hw6.php
+	- User inputs into the form here
+movie_search.php
+	- Done in PHP
+	- Constructs search url query
+	- scrubs contents to put in table using regular expressions
+

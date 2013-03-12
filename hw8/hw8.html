@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC “@-//W3C//DTD XHTML 1.0 Strict//EN”
+   “http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict-dtd”>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<title>Homework #8</title>
+	<div id='fb-root'></div>
+	<script>
+		function test(t) {
+			alert(t);
+		}
+	
+		function myCallback() {
+			//alert("callback");
+			//alert(req.readyState);
+			if (req.readyState == 4) {
+					//alert(req.status);
+				if (req.status == 200) {
+					//alert(req.responseText);
+					var doc = eval('(' + req.responseText + ')');
+					//alert(doc);
+					var displayArea = document.getElementById("results");
+					//alert(displayArea);
+					// remove current table
+					if (displayArea.hasChildNodes()) {
+						displayArea.removeChild(displayArea.firstChild);
+					}
+					if (doc.results.result.length > 0) {
+						// make table
+						var resultTable = "<table border=1 style=\"margin: 0px auto\">"
+						resultTable += "<tr><th>Image</th><th>Title</th><th style=\"padding-left:10px;padding-right:10px\">Year</th><th>Director</th><th style=\"padding-left:10px;padding-right:10px\">Rating(10)</th><th style=\"padding-left:10px;padding-right:10px\">Link</th><th>Spam to Facebook</th></tr>"
+						
+						for (i = 0; i < doc.results.result.length; ++i) {
+							//alert(doc.result[i]);
+							if (i == 5) break;
+							// START ROW
+							title = doc.results.result[i].title;
+							resultTable += "<tr id='" + title +"'>"
+							// POSTER
+							poster = doc.results.result[i].cover;
+							//alert(poster);
+							resultTable += "<td><img src=\"" + poster + "\"/></td>";
+							// TITLE
+							//alert(title);
+							resultTable += "<td align=\"center\" style=\"padding-left:10px;padding-right:10px\">" + title + "</td>";
+							// YEAR
+							year = doc.results.result[i].year;
+							//alert(year);
+							resultTable += "<td align=\"center\">" + year + "</td>";
+							// DIRECTOR(S)
+							director = doc.results.result[i].director;
+							//alert(director);
+							resultTable += "<td align=\"center\" style=\"padding-left:10px;padding-right:10px\">" + director + "</td>";
+							// RATING
+							rating = doc.results.result[i].rating;
+							//alert(rating);
+							resultTable += "<td align=\"center\">" + rating + "</td>";
+							// LINK
+							link = doc.results.result[i].details;
+							//alert(link);
+							resultTable += "<td align=\"center\"><a href=\"" + link + "\">Link</a></td>";
+							// SPAM TO FACEBOOK - TODO
+							// onclick='sendPost(" + title + ")'
+	  
+							resultTable += "<td align=\"center\"><button onClick='postPost(\"" + title + "\")'>Spam</button></td>";
+							// END ROW
+							resultTable += "</tr>";
+						} 
+						resultTable += "</table>";
+						//alert(resultTable);
+						displayArea.innerHTML = resultTable;
+					} else {
+						displayArea.innerHTML = "<div id=\"search\" align=\"center\" style=\"margin:0px auto\">No Results Found</div>";
+					}
+						
+				}
+			}
+			//alert(doc)
+			// TODO: Display Stuff
+			// get display area
+
+		}
+	
+		function servletCall() {
+			var mediaTitle = document.forms["imdbSearch"]["title"].value;
+			//alert(mediaTitle);
+			var mediaType = document.forms["imdbSearch"]["type"].value;
+			//alert(mediaType);
+			if (mediaType == 'All Types') {
+				mediaType = "feature,tv_series,game";
+			} else if (mediaType == "Film") {
+				mediaType = "feature";
+			} else if (mediaType == "TV") {
+				mediaType = "tv_series";
+			} else if (mediaType == "Video Games") {
+				mediaType = "game";
+			}
+			url = "http://cs-server.usc.edu:10174/examples/servlet/MovieSearch?title=" + encodeURI(mediaTitle) + "&type=" + mediaType;
+			//alert(url);
+			
+			req = false;
+			if (window.XMLHttpRequest) {
+				try {
+					req = new XMLHttpRequest();
+				} catch (e) {
+					req = false;
+				}
+			} 
+			//alert(req);
+			if (req) {
+				req.open("GET", url, true);
+				req.onreadystatechange = myCallback;
+				//req.setCharacterEncoding("UTF-8");
+				//req.setRequestHeader("Connection", "Close");
+				//req.setRequestHeader("Method", "GET" + url + "HTTP/1.1");
+				req.send();
+				//doGet();
+			}
+		}
+	
+		function titleCheck() {
+			var x = document.forms["imdbSearch"]["title"].value;
+			//alert(x);
+			if (x == null || x == "") {
+				alert("Please Enter a Title");
+				return false;
+			}
+			return true;
+		}
+		
+
+		function loadFBAPI() {
+			(function(d){
+				var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement('script'); js.id = id; js.async = true;
+				js.src = "//connect.facebook.net/en_US/all.js";
+				ref.parentNode.insertBefore(js, ref);
+			}(document));
+			window.fbAsyncInit = function() {
+
+										// init the FB JS SDK
+				FB.init({
+					appId      : '431982883531370', // App ID from the App Dashboard
+					//  channelUrl : '//cs-server.usc.edu:10174/channel.html', // Channel File for x-domain communication
+					status     : true, // check the login status upon init?
+					cookie     : true, // set sessions cookies to allow your server to access the session?
+					xfbml      : true  // parse XFBML tags on this page?
+				});
+			}
+		}
+		
+		
+			// Load the SDK Asynchronously
+		function postPost(title) {
+			//alert(title);
+								//alert(title);				
+			FB.getLoginStatus(function(response) {
+				//alert(response.status);
+				if (response.status == 'connected') {
+					movieRow = document.getElementById(title);
+					//alert(movieRow);
+					// 0 - cover, 1- title, 2-year, 3-director, 4-rating, 5-link
+					poster = movieRow.cells[0].firstChild.getAttribute('src');
+					//alert(poster);
+					//alert(title);
+					year = movieRow.cells[2].innerHTML;
+					//alert(year);
+					//alert(director);
+					rate = movieRow.cells[4].innerHTML;
+					//alert(rate);
+					deets = movieRow.cells[5].firstChild.getAttribute('href');
+					//alert(deets);
+					// post this stupid thing
+					reviewLink = deets + "reviews";
+					var obj = {
+						method:'feed',
+						link: deets,
+						picture: poster,
+						name: title,
+						caption: "I'm interested in this thing",
+						description: title + ' released in ' + year + ' has a rating of ' + rate,
+						properties: {
+							"Look at user reviews" : { "text" : "here", "href": reviewLink  }
+							}
+					};
+					
+					FB.ui(obj, function() { });
+					
+				} else {
+					FB.login();
+				}
+		   }, true);
+		}
+
+	</script>
+</head>
+<body onload="loadFBAPI()">
+
+<h1 align="center" >Movie Search</h1>
+<div id="search" align="center" style="margin:0px auto">
+	<form id="imdbSearch" Submit="return false" >
+		<label for="title">Title:</label>
+		<input type="text" name="title" />
+		<br/>
+		<label for="type">Media Type:</label>
+		<select name="type">
+			<option selected>All Types</option>
+			<option>Film</option>
+			<option>TV</option>
+			<option>Video Games</option>
+		</select>
+		<br/>
+		<input type="button" value="Search" onClick='if (titleCheck()) { servletCall(); }' />
+	</form>
+</div>
+<div id="results">
+</div>
+<p id="msg"></p>
+</body>
+</html>

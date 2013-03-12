@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.facebook.android.Facebook"/>
+<fullyQualifiedTypeName name="com.facebook.android.AsyncFacebookRunner"/>
+<fullyQualifiedTypeName name="com.facebook.android.Facebook.DialogListener"/>
+<fullyQualifiedTypeName name="com.facebook.FacebookActivity"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="com.facebook.SessionState"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="android.app.DownloadManager.Request"/>
+<fullyQualifiedTypeName name="com.facebook.Request.GraphUserCallback"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="com.facebook.Request"/>
+<fullyQualifiedTypeName name="com.csci571.hw9.FBLoginActivity"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="com.facebook.widget.WebDialog"/>
+<fullyQualifiedTypeName name="com.facebook.widget.WebDialog.FeedDialogBuilder"/>
+<fullyQualifiedTypeName name="com.facebook.Session"/>
+<fullyQualifiedTypeName name="com.facebook.widget.WebDialog.OnCompleteListener"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="java.net.HttpURLConnection"/>
+<fullyQualifiedTypeName name="android.graphics.BitmapFactory"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="android.graphics.drawable.Drawable"/>
+<fullyQualifiedTypeName name="android.os.StrictMode"/>
+<fullyQualifiedTypeName name="org.json.JSONObject"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CS571hw9</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="movie_search">Movie Search</string>
+    <string name="title">Title</string>
+    <string name="search">Search</string>
+
+    <string-array name="types_array">
+        <item>All Types</item>
+        <item>Film</item>
+        <item>TV</item>
+        <item>Video Game</item>
+    </string-array>
+
+    <string name="title_activity_results_list">ResultsListActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="post_to_fb">Would you like to post the movie info to Facebook?</string>
+    <string name="app_id">454449914592993</string>
+    <string name="title_activity_fblogin">FBLoginActivity</string>
+
+</resources>
